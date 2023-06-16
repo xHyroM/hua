@@ -1,3 +1,3 @@
 local m = require("hua")
 
-print(m.value1)
+print(m.version())
