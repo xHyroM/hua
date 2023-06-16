@@ -1,3 +1,3 @@
-local m = require("hua:dummy")
+local dummy = require("hua:dummy")
 
-print(m.version())
+print(dummy.version())

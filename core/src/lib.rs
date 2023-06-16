@@ -1,4 +1,4 @@
-use rlua::Lua;
+use rlua::{InitFlags, Lua, StdLib};
 
 mod modules;
 
@@ -9,7 +9,12 @@ pub struct Hua {
 
 impl Hua {
     pub fn new() -> Self {
-        let lua = Lua::new();
+        let lua = unsafe {
+            Lua::unsafe_new_with_flags(
+                StdLib::ALL_NO_DEBUG, // Load all Lua standard libraries apart from debug
+                InitFlags::DEFAULT - InitFlags::REMOVE_LOADLIB, // Allow loading binary libraries
+            )
+        };
 
         Hua { lua }
     }
