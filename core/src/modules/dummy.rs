@@ -7,7 +7,7 @@ pub fn create<'lua>(ctx: Context<'lua>, loaded: Table<'lua>) -> Result<(), rlua:
 
     add_version(ctx, &hua_module)?;
 
-    loaded.set("hua", hua_module)?;
+    loaded.set("hua:dummy", hua_module)?;
     Ok(())
 }
 
