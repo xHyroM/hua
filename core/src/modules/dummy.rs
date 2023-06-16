@@ -2,7 +2,7 @@ use std::env;
 
 use rlua::{Context, Table};
 
-pub fn create<'lua>(ctx: Context<'lua>, loaded: Table<'lua>) -> Result<(), rlua::Error> {
+pub fn create<'lua>(ctx: Context<'lua>, loaded: &Table<'lua>) -> Result<(), rlua::Error> {
     let hua_module = ctx.create_table()?;
 
     add_version(ctx, &hua_module)?;

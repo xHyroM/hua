@@ -1,6 +1,7 @@
 use rlua::{Context, Error, Table};
 
 mod dummy;
+mod json;
 
 pub fn populate(ctx: Context) -> Result<(), Error> {
     let globals = ctx.globals();
@@ -9,7 +10,8 @@ pub fn populate(ctx: Context) -> Result<(), Error> {
     let loaded: Table = packages.get("loaded")?;
 
     #[cfg(debug_assertions)]
-    dummy::create(ctx, loaded)?;
+    dummy::create(ctx, &loaded)?;
+    json::create(ctx, &loaded)?;
 
     Ok(())
 }
