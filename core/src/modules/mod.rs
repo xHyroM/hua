@@ -8,6 +8,7 @@ pub fn populate(ctx: Context) -> Result<(), Error> {
     let packages: Table = globals.get("package")?;
     let loaded: Table = packages.get("loaded")?;
 
+    #[cfg(debug_assertions)]
     dummy::create(ctx, loaded)?;
 
     Ok(())
