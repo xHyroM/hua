@@ -1,8 +1,11 @@
 local dummy = require("hua:dummy")
-local json = require("json")
+local json = require("hua:json")
 
 print(dummy.version())
 
-print(json.encode({
-  c = 5
-}))
+local text = {
+  ["moom"] = "x",
+  ["lmaop"] = "e"
+}
+
+print(json.encode(text))
