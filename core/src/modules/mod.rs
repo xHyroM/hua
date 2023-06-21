@@ -4,7 +4,7 @@ use mlua::Result;
 mod dummy;
 mod json;
 
-pub fn populate(ctx: Lua) -> Result<()> {
+pub fn populate(ctx: &Lua) -> Result<()> {
     let globals = ctx.globals();
 
     let packages: LuaTable = globals.get("package")?;

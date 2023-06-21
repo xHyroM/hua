@@ -20,6 +20,6 @@ impl Hua {
     }
 
     pub fn populate(&mut self) -> Result<()> {
-        modules::populate(self.lua)
+        modules::populate(&self.lua)
     }
 }

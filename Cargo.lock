@@ -117,9 +117,17 @@ name = "core"
 version = "0.1.0"
 dependencies = [
  "mlua",
- "rlua_derive",
  "serde",
  "serde_json",
+]
+
+[[package]]
+name = "erased-serde"
+version = "0.3.25"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f2b0c2380453a92ea8b6c8e5f64ecaafccddde8ceab55ff7a8ac1029f894569"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -230,12 +238,14 @@ checksum = "07366ed2cd22a3b000aed076e2b68896fb46f06f1f5786c5962da73c0af01577"
 dependencies = [
  "bstr",
  "cc",
+ "erased-serde",
  "lua-src",
  "luajit-src",
  "num-traits",
  "once_cell",
  "pkg-config",
  "rustc-hash",
+ "serde",
 ]
 
 [[package]]
@@ -258,57 +268,6 @@ name = "pkg-config"
 version = "0.3.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "26072860ba924cbfa98ea39c8c19b4dd6a4a25423dbdf219c1eca91aa0cf6964"
-
-[[package]]
-name = "proc-macro2"
-version = "1.0.60"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dec2b086b7a862cf4de201096214fa870344cf922b2b30c167badb3af3195406"
-dependencies = [
- "unicode-ident",
-]
-
-[[package]]
-name = "quote"
-version = "1.0.28"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1b9ab9c7eadfd8df19006f1cf1a4aed13540ed5cbc047010ece5826e10825488"
-dependencies = [
- "proc-macro2",
-]
-
-[[package]]
-name = "rlua"
-version = "0.19.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "753540fb29c9a615ce5dd64be5c957271adc887c8424555fc372e0b88ebde074"
-dependencies = [
- "bitflags",
- "bstr",
- "libc",
- "num-traits",
- "rlua-lua54-sys",
-]
-
-[[package]]
-name = "rlua-lua54-sys"
-version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "28b1af7df13ef18849005d82d8d16411ebdb7f35f9dcfcb790a4ce49bc1e05aa"
-dependencies = [
- "cc",
- "libc",
- "pkg-config",
-]
-
-[[package]]
-name = "rlua_derive"
-version = "0.1.0"
-dependencies = [
- "rlua",
- "serde",
- "serde_json",
-]
 
 [[package]]
 name = "rustc-hash"
@@ -341,20 +300,6 @@ name = "serde"
 version = "1.0.164"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9e8c8cf938e98f769bc164923b06dce91cea1751522f46f8466461af04c9027d"
-dependencies = [
- "serde_derive",
-]
-
-[[package]]
-name = "serde_derive"
-version = "1.0.164"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d9735b638ccc51c28bf6914d90a2e9725b377144fc612c49a611fddd1b631d68"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
 
 [[package]]
 name = "serde_json"
@@ -372,23 +317,6 @@ name = "strsim"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623"
-
-[[package]]
-name = "syn"
-version = "2.0.18"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32d41677bcbe24c20c52e7c70b0d8db04134c5d1066bf98662e2871ad200ea3e"
-dependencies = [
- "proc-macro2",
- "quote",
- "unicode-ident",
-]
-
-[[package]]
-name = "unicode-ident"
-version = "1.0.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b15811caf2415fb889178633e7724bad2509101cde276048e013b9def5e51fa0"
 
 [[package]]
 name = "utf8parse"
