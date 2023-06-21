@@ -1,13 +1,14 @@
-use rlua::{Context, Error, Table};
+use mlua::prelude::*;
+use mlua::Result;
 
 mod dummy;
 mod json;
 
-pub fn populate(ctx: Context) -> Result<(), Error> {
+pub fn populate(ctx: &Lua) -> Result<()> {
     let globals = ctx.globals();
 
-    let packages: Table = globals.get("package")?;
-    let loaded: Table = packages.get("loaded")?;
+    let packages: LuaTable = globals.get("package")?;
+    let loaded: LuaTable = packages.get("loaded")?;
 
     #[cfg(debug_assertions)]
     dummy::create(ctx, &loaded)?;
